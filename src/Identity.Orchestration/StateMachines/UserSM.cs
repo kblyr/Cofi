@@ -9,7 +9,6 @@ sealed class UserSM : MassTransitStateMachine<UserSMI>
         _logger = logger;
 
         InstanceState(instance => instance.CurrentState);
-
         ConfigureEvents();
         ConfigureEventActivities();
     }
@@ -134,9 +133,9 @@ sealed class UserSM : MassTransitStateMachine<UserSMI>
     void OnUserCreated(BehaviorContext<UserSMI, UserCreated> context)
     {
         using (_logger.BeginScopeWithProps(context.Data.GetLoggingProps()))
-        _logger.LogInformation("User has been created");
         context.Instance.UserId = context.Data.Id;
         context.Instance.IsActive = context.Data.IsActive;
+        _logger.LogInformation("User has been created");
     }
 
     void OnUserActivated(BehaviorContext<UserSMI, UserActivated> context)
