@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MassTransit" Version="7.3.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Cofi.Identity.Commands" />
+    <Using Include="Cofi.Identity.Data" />
+    <Using Include="Cofi.Identity.Entities" />
+    <Using Include="Cofi.Identity.Events" />
+    <Using Include="Cofi.Identity.Responses" />
+    <Using Include="MassTransit" />
+    <Using Include="Microsoft.EntityFrameworkCore" />
+    <Using Include="Microsoft.EntityFrameworkCore.Metadata.Builders" />
+    <Using Include="Microsoft.Extensions.Logging" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Identity\Cofi.Identity.csproj" />
+    <ProjectReference Include="..\Cofi\Cofi.csproj" />
+  </ItemGroup>
+
+</Project>
