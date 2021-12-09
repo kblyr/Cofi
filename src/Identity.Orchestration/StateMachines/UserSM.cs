@@ -188,7 +188,7 @@ sealed class UserSM : MassTransitStateMachine<UserSMI>
 
     async Task OnUserActivationRequestDeniedMissingInstanceAsync(ConsumeContext<UserActivationRequestDenied> context)
     {
-        using (_logger.BeginScopeWithProps(context.Message.GetLoggingProps()));
+        using (_logger.BeginScopeWithProps(context.Message.GetLoggingProps()))
         _logger.LogWarning("Trying to set the current state of a non-existing user to '{state}'", nameof(Inactive));
 
         if (context.RequestId.HasValue)
