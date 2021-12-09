@@ -29,42 +29,42 @@ sealed class UserSM : MassTransitStateMachine<UserSMI>
     {
         Event(() => UserCreated,
             correlation => {
-                correlation.CorrelateBy((instance, context) => instance.Data.Id == context.Message.Id)
+                correlation.CorrelateBy((instance, context) => instance.UserId == context.Message.Id)
                     .SelectId(context => NewId.NextGuid());
             }
         );
 
         Event(() => UserActivated,
             correlation => {
-                correlation.CorrelateBy((instance, context) => instance.Data.Id == context.Message.UserId)
+                correlation.CorrelateBy((instance, context) => instance.UserId == context.Message.UserId)
                     .SelectId(context => NewId.NextGuid());
             }
         );
 
         Event(() => UserDeactivated,
             correlation => {
-                correlation.CorrelateBy((instance, context) => instance.Data.Id == context.Message.UserId)
+                correlation.CorrelateBy((instance, context) => instance.UserId == context.Message.UserId)
                     .SelectId(context => NewId.NextGuid());
             }
         );
 
         Event(() => UserActivationRequested,
             correlation => {
-                correlation.CorrelateBy((instance, context) => instance.Data.Id == context.Message.UserId)
+                correlation.CorrelateBy((instance, context) => instance.UserId == context.Message.UserId)
                     .SelectId(context => NewId.NextGuid());
             }
         );
 
         Event(() => UserActivationRequestApproved,
             correlation => {
-                correlation.CorrelateBy((instance, context) => instance.Data.Id == context.Message.UserId);
+                correlation.CorrelateBy((instance, context) => instance.UserId == context.Message.UserId);
                 correlation.OnMissingInstance(instance => instance.ExecuteAsync(OnUserActivationRequestApprovedMissingInstanceAsync));
             }
         );
 
         Event(() => UserActivationRequestDenied,
             correlation => {
-                correlation.CorrelateBy((instance, context) => instance.Data.Id == context.Message.UserId);
+                correlation.CorrelateBy((instance, context) => instance.UserId == context.Message.UserId);
                 correlation.OnMissingInstance(instance => instance.ExecuteAsync(OnUserActivationRequestDeniedMissingInstanceAsync));
             }
         );
@@ -135,38 +135,38 @@ sealed class UserSM : MassTransitStateMachine<UserSMI>
     {
         using (_logger.BeginScopeWithProps(context.Data.GetLoggingProps()))
         _logger.LogInformation("User has been created");
-        context.Instance.Data.Id = context.Data.Id;
-        context.Instance.Data.IsActive = context.Data.IsActive;
+        context.Instance.UserId = context.Data.Id;
+        context.Instance.IsActive = context.Data.IsActive;
     }
 
     void OnUserActivated(BehaviorContext<UserSMI, UserActivated> context)
     {
         using (_logger.BeginScopeWithProps(context.Data.GetLoggingProps()))
-        context.Instance.Data.Id = context.Data.UserId;
-        context.Instance.Data.IsActive = true;
+        context.Instance.UserId = context.Data.UserId;
+        context.Instance.IsActive = true;
         _logger.LogInformation("User has been activated");
     }
 
     void OnUserDeactivated(BehaviorContext<UserSMI, UserDeactivated> context)
     {
         using (_logger.BeginScopeWithProps(context.Data.GetLoggingProps()))
-        context.Instance.Data.Id = context.Data.UserId;
-        context.Instance.Data.IsActive = false;
+        context.Instance.UserId = context.Data.UserId;
+        context.Instance.IsActive = false;
         _logger.LogInformation("User has been deactivated");
     }
 
     void OnUserActivationRequested(BehaviorContext<UserSMI, UserActivationRequested> context)
     {
         using (_logger.BeginScopeWithProps(context.Data.GetLoggingProps()))
-        context.Instance.Data.Id = context.Data.UserId;
-        context.Instance.Data.IsActive = false;
+        context.Instance.UserId = context.Data.UserId;
+        context.Instance.IsActive = false;
         _logger.LogInformation("User requested activation");
     }
 
     void OnUserActivationRequestApproved(BehaviorContext<UserSMI, UserActivationRequestApproved> context)
     {
         using (_logger.BeginScopeWithProps(context.Data.GetLoggingProps()))
-        context.Instance.Data.IsActive = true;
+        context.Instance.IsActive = true;
         _logger.LogInformation("User request for activation has been approved");
     }
 
@@ -182,7 +182,7 @@ sealed class UserSM : MassTransitStateMachine<UserSMI>
     void OnUserActivationRequestDenied(BehaviorContext<UserSMI, UserActivationRequestDenied> context)
     {
         using (_logger.BeginScopeWithProps(context.Data.GetLoggingProps()))
-        context.Instance.Data.IsActive = false;
+        context.Instance.IsActive = false;
         _logger.LogInformation("User request for activation has been denied");
     }
 
@@ -196,10 +196,11 @@ sealed class UserSM : MassTransitStateMachine<UserSMI>
     }
 }
 
-sealed class UserSMI : SagaStateMachineInstance<UserSMIData> { }
-
-sealed class UserSMIData
+sealed class UserSMI : SagaStateMachineInstance
 {
-    public int Id { get; set; }
+    public Guid CorrelationId { get; set; }
+    public string CurrentState { get; set; } = default!;
+
+    public int UserId { get; set; }
     public bool IsActive { get; set; }
 }

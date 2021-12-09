@@ -13,7 +13,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Identity\Cofi.Identity.csproj" />
     <ProjectReference Include="..\Cofi\Cofi.csproj" />
-    <ProjectReference Include="..\Orchestration\Cofi.Orchestration.csproj" />
   </ItemGroup>
 
   <ItemGroup>
