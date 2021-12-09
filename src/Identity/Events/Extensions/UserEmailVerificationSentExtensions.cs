@@ -4,6 +4,6 @@ public static class UserEmailVerificationSentExtensions
 {
     public static (string, object?)[] GetLoggingProps(this UserEmailVerificationSent @event) => new (string, object?)[]
     {
-        ("user_id", @event.UserId)
+        ("UserId", @event.UserId)
     };
 }

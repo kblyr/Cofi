@@ -4,7 +4,7 @@ public static class UserActivatedExtensions
 {
     public static (string, object?)[] GetLoggingProps(this UserActivated @event) => new(string, object?)[]
     {
-        ("user_id", @event.UserId),
-        ("activated_by_id", @event.ActivatedById)
+        ("UserId", @event.UserId),
+        ("ActivatedById", @event.ActivatedById)
     };
 }
