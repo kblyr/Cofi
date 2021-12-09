@@ -1,4 +1,4 @@
-namespace Cofi.Identity.Requests;
+namespace Cofi.Identity.Commands;
 
 public record SendUserEmailVerification
 {

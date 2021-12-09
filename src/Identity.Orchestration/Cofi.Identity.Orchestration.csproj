@@ -17,8 +17,8 @@
 
   <ItemGroup>
     <Using Include="Automatonymous" />
+    <Using Include="Cofi.Identity.Commands" />
     <Using Include="Cofi.Identity.Events" />
-    <Using Include="Cofi.Identity.Requests" />
     <Using Include="Cofi.Identity.Responses" />
     <Using Include="MassTransit" />
     <Using Include="Microsoft.Extensions.Logging" />
