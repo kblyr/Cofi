@@ -4,7 +4,7 @@ public static class UserActivationRequestApprovedExtensions
 {
     public static (string, object?)[] GetLoggingProps(this UserActivationRequestApproved @event) => new(string, object?)[]
     {
-        ("UserId", @event.UserId),
-        ("ApprovedById", @event.ApprovedById)
+        (nameof(@event.UserId), @event.UserId),
+        (nameof(@event.ApprovedById), @event.ApprovedById)
     };
 }

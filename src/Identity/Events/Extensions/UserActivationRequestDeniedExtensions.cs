@@ -4,7 +4,7 @@ public static class UserActivationRequestDeniedExtensions
 {
     public static (string, object?)[] GetLoggingProps(this UserActivationRequestDenied @event) => new(string, object?)[]
     {
-        ("UserId", @event.UserId),
-        ("DeniedById", @event.DeniedById)
+        (nameof(@event.UserId), @event.UserId),
+        (nameof(@event.DeniedById), @event.DeniedById)
     };
 }
