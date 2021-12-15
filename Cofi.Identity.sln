@@ -3,6 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0DBBBDA0-B54A-4586-8FCB-7B72F3FF4938}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{AB8B4B95-1B04-4F34-82E9-90B5837E196C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cofi.Identity", "src\Identity\Core\Cofi.Identity.csproj", "{5C438EC2-DBE0-479F-83EC-B4124FE7B0E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -10,5 +16,15 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5C438EC2-DBE0-479F-83EC-B4124FE7B0E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C438EC2-DBE0-479F-83EC-B4124FE7B0E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C438EC2-DBE0-479F-83EC-B4124FE7B0E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C438EC2-DBE0-479F-83EC-B4124FE7B0E4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AB8B4B95-1B04-4F34-82E9-90B5837E196C} = {0DBBBDA0-B54A-4586-8FCB-7B72F3FF4938}
+		{5C438EC2-DBE0-479F-83EC-B4124FE7B0E4} = {AB8B4B95-1B04-4F34-82E9-90B5837E196C}
 	EndGlobalSection
 EndGlobal
