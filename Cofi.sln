@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{ED3F772A-2C1A-4C69-AE68-D0F7F6CCC6F0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{E342B39C-FA3D-489A-8A1C-90AC74090B73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cofi", "src\Core\Cofi\Cofi.csproj", "{9123C226-26D8-4BF0-8F8B-2D7F4F661F1F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9123C226-26D8-4BF0-8F8B-2D7F4F661F1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9123C226-26D8-4BF0-8F8B-2D7F4F661F1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9123C226-26D8-4BF0-8F8B-2D7F4F661F1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9123C226-26D8-4BF0-8F8B-2D7F4F661F1F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E342B39C-FA3D-489A-8A1C-90AC74090B73} = {ED3F772A-2C1A-4C69-AE68-D0F7F6CCC6F0}
+		{9123C226-26D8-4BF0-8F8B-2D7F4F661F1F} = {E342B39C-FA3D-489A-8A1C-90AC74090B73}
+	EndGlobalSection
+EndGlobal
