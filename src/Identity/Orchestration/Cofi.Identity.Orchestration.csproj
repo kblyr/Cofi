@@ -6,4 +6,25 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MassTransit" Version="7.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Cofi.Identity.csproj" />
+    <ProjectReference Include="..\..\Common\Core\Cofi.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Cofi -->
+    <Using Include="Cofi.Logging" />
+    <!-- Cofi.Identity -->
+    <Using Include="Cofi.Identity.Contracts" />
+    <!-- *External* -->
+    <Using Include="Automatonymous" />
+    <Using Include="MassTransit" />
+    <Using Include="MassTransit.Saga" />
+    <Using Include="Microsoft.Extensions.Logging" />
+  </ItemGroup>
+
 </Project>
