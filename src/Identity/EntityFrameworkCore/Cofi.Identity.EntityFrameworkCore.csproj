@@ -26,6 +26,7 @@
     <Using Include="Microsoft.EntityFrameworkCore" />
     <Using Include="Microsoft.Extensions.Logging" />
     <!-- Cofi -->
+    <Using Include="Cofi.Auditing" />
     <Using Include="Cofi.Logging" />
     <!-- Cofi.Identity -->
     <Using Include="Cofi.Identity" />
