@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cofi", "src\Common\Core\Cof
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cofi.EntityFrameworkCore", "src\Common\EntityFrameworkCore\Cofi.EntityFrameworkCore.csproj", "{7E9538BF-DC22-47CC-86B4-808667E1F935}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cofi.Identity.Orchestration", "src\Identity\Orchestration\Cofi.Identity.Orchestration.csproj", "{56CD9486-06DE-488B-BBD8-BCE395FDCBF8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,10 @@ Global
 		{7E9538BF-DC22-47CC-86B4-808667E1F935}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E9538BF-DC22-47CC-86B4-808667E1F935}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E9538BF-DC22-47CC-86B4-808667E1F935}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56CD9486-06DE-488B-BBD8-BCE395FDCBF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56CD9486-06DE-488B-BBD8-BCE395FDCBF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56CD9486-06DE-488B-BBD8-BCE395FDCBF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56CD9486-06DE-488B-BBD8-BCE395FDCBF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{AB8B4B95-1B04-4F34-82E9-90B5837E196C} = {0DBBBDA0-B54A-4586-8FCB-7B72F3FF4938}
@@ -50,5 +56,6 @@ Global
 		{4556CE64-6BB8-4689-AA06-724C6FAE1AD0} = {0DBBBDA0-B54A-4586-8FCB-7B72F3FF4938}
 		{B2836332-4EB5-4603-A3B0-304B76505FCF} = {4556CE64-6BB8-4689-AA06-724C6FAE1AD0}
 		{7E9538BF-DC22-47CC-86B4-808667E1F935} = {4556CE64-6BB8-4689-AA06-724C6FAE1AD0}
+		{56CD9486-06DE-488B-BBD8-BCE395FDCBF8} = {AB8B4B95-1B04-4F34-82E9-90B5837E196C}
 	EndGlobalSection
 EndGlobal
