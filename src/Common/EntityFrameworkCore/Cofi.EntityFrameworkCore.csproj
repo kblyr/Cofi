@@ -15,4 +15,8 @@
     <Using Include="Microsoft.Extensions.Logging" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Cofi.csproj" />
+  </ItemGroup>
+
 </Project>

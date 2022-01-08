@@ -21,20 +21,20 @@ sealed class CreateUserConsumer : IConsumer<CreateUser>
         using var dbContext = await _contextFactory.CreateDbContextAsync().ConfigureAwait(false);
         using var transaction = await dbContext.Database.BeginTransactionAsync().ConfigureAwait(false);
 
-        _logger.LogTrace("Checking if username already exists");
+        _logger.TryLogTrace("Checking if username already exists");
         if (await dbContext.Users.UsernameExistsAsync(context.Message.Username).ConfigureAwait(false))
         {
-            _logger.LogTrace("Username already exists");
+            _logger.TryLogTrace("Username already exists");
             var usernameAlreadyExists = _mapper.Map<CreateUser, UsernameAlreadyExists>(context.Message);
             var response = _mapper.Map<UsernameAlreadyExists, CreateUserFailed>(usernameAlreadyExists);
             await context.RespondAsync(response).ConfigureAwait(false);
             return;
         }
 
-        _logger.LogTrace("Checking if user email address already exists");
+        _logger.TryLogTrace("Checking if user email address already exists");
         if (await dbContext.Users.EmailAddressExistsAsync(context.Message.EmailAddress).ConfigureAwait(false))
         {
-            _logger.LogTrace("User email address already exists");
+            _logger.TryLogTrace("User email address already exists");
             var emailAddressAlreadyExists = _mapper.Map<CreateUser, UserEmailAddressAlreadyExists>(context.Message);
             var response = _mapper.Map<UserEmailAddressAlreadyExists, CreateUserFailed>(emailAddressAlreadyExists);
             await context.RespondAsync(response).ConfigureAwait(false);

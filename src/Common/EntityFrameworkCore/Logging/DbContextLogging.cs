@@ -9,11 +9,11 @@ public sealed class DbContextLogging
         _logger = logger;
     }
 
-    public void Creating(string dbContextName) => _logger.LogTrace("Creating database context: {DbContext}", dbContextName);
+    public void Creating(string dbContextName) => _logger.TryLogTrace("Creating database context: {DbContext}", dbContextName);
 
     public void Creating<TDbContext>() => Creating(typeof(TDbContext).Name);
 
-    public void SavingChanges() => _logger.LogTrace("Saving changes to database");
+    public void SavingChanges() => _logger.TryLogTrace("Saving changes to database");
 
-    public void CommittingTransaction() => _logger.LogTrace("Committing database transaction");
+    public void CommittingTransaction() => _logger.TryLogTrace("Committing database transaction");
 }

@@ -1,3 +1,5 @@
+using System.Collections.Concurrent;
+
 namespace Cofi.Logging;
 
 public static class ILoggerExtensions

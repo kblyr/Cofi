@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Core\Cofi.Identity.csproj" />
     <ProjectReference Include="..\..\Common\EntityFrameworkCore\Cofi.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\Common\Core\Cofi.csproj" />
   </ItemGroup>
 
   <ItemGroup>
