@@ -6,4 +6,15 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- *External* -->
+    <Using Include="AutoMapper" />
+    <!-- Cofi.Identity -->
+    <Using Include="Cofi.Identity.Contracts" />
+  </ItemGroup>
+
 </Project>

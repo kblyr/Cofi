@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <!-- *External* -->
     <Using Include="Microsoft.Extensions.Logging" />
   </ItemGroup>
 
