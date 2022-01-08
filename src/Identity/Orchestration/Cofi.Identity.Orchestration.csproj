@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.0" />
     <PackageReference Include="MassTransit" Version="7.3.0" />
   </ItemGroup>
 
@@ -21,6 +22,7 @@
     <!-- Cofi.Identity -->
     <Using Include="Cofi.Identity.Contracts" />
     <!-- *External* -->
+    <Using Include="AutoMapper" />
     <Using Include="Automatonymous" />
     <Using Include="MassTransit" />
     <Using Include="MassTransit.Saga" />
