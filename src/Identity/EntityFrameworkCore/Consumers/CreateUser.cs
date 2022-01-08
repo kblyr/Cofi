@@ -61,6 +61,9 @@ sealed class CreateUserConsumer : IConsumer<CreateUser>
         await dbContext.SaveChangesAsync().ConfigureAwait(false);
 
         _logger.DbContext().CommittingTransaction();
-        await transaction.CommitAsync().ConfigureAwait(false);   
+        await transaction.CommitAsync().ConfigureAwait(false);
+
+        var userCreated = _mapper.Map<User, UserCreated>(user);
+        await _bus.Publish(userCreated).ConfigureAwait(false);
     }
 }
