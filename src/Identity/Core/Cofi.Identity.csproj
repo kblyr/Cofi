@@ -17,4 +17,8 @@
     <Using Include="Cofi.Identity.Contracts" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Core\Cofi.csproj" />
+  </ItemGroup>
+
 </Project>
