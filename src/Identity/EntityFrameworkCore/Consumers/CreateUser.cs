@@ -1,3 +1,4 @@
+using Cofi.Extensions.MassTransit;
 using Cofi.Identity.Utilities;
 
 namespace Cofi.Identity.Consumers;
@@ -29,7 +30,7 @@ sealed class CreateUserConsumer : IConsumer<CreateUser>
         {
             var usernameAlreadyExists = _mapper.Map<CreateUser, UsernameAlreadyExists>(context.Message);
             var response = _mapper.Map<UsernameAlreadyExists, CreateUserFailed>(usernameAlreadyExists);
-            await context.RespondAsync(response).ConfigureAwait(false);
+            await context.TryRespondAsync(response).ConfigureAwait(false);
             return;
         }
 
@@ -37,7 +38,7 @@ sealed class CreateUserConsumer : IConsumer<CreateUser>
         {
             var emailAddressAlreadyExists = _mapper.Map<CreateUser, UserEmailAddressAlreadyExists>(context.Message);
             var response = _mapper.Map<UserEmailAddressAlreadyExists, CreateUserFailed>(emailAddressAlreadyExists);
-            await context.RespondAsync(response).ConfigureAwait(false);
+            await context.TryRespondAsync(response).ConfigureAwait(false);
             return;
         }
 
