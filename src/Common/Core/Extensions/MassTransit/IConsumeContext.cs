@@ -9,4 +9,6 @@ public static class IConsumeContextExtensions
         if (context.RequestId.HasValue)
             await context.RespondAsync(message).ConfigureAwait(false);
     }
+
+    public static bool IsRequest(this ConsumeContext context) => context.RequestId.HasValue;
 }

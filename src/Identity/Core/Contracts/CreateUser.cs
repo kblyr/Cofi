@@ -8,4 +8,12 @@ public record CreateUser
     public bool IsActive { get; init; }
     public bool IsPasswordChangeRequired { get; init; }
     public bool IsEmailVerified { get; init; }
+    public IEnumerable<short> DomainIds { get; init; } = default!;
+    public IEnumerable<int> RoleIds { get; init; } = default!;
+    public IEnumerable<int> PermissionIds { get; init; } = default!;
+
+    public record Result
+    {
+        public int Id { get; init; }
+    }
 }
