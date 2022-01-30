@@ -6,4 +6,21 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Cofi.Identity.csproj" />
+    <ProjectReference Include="..\..\Common\Core\Cofi.csproj" />
+    <ProjectReference Include="..\..\Common\Web\Cofi.Web.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Cofi" />
+    <Using Include="Cofi.Identity.Commands" />
+
+    <Using Include="MediatR" />
+  </ItemGroup>
+
 </Project>

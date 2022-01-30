@@ -1,6 +1,5 @@
-using System.Data;
-using Cofi.Auditing;
 using Cofi.Identity.Utilities;
+using Cofi.Messaging;
 
 namespace Cofi.Identity.Handlers;
 
@@ -10,13 +9,15 @@ sealed class SignupUser_Handler : CofiRequestHandler<SignupUser>
     readonly ICurrentAuditInfoProvider _currentAuditInfoProvider;
     readonly IUserPasswordHash _passwordHash;
     readonly IMapper _mapper;
+    readonly MessageBusAdapter _bus;
 
-    public SignupUser_Handler(IDbContextFactory<UserDbContext> contextFactory, ICurrentAuditInfoProvider currentAuditInfoProvider, IUserPasswordHash passwordHash, IMapper mapper)
+    public SignupUser_Handler(IDbContextFactory<UserDbContext> contextFactory, ICurrentAuditInfoProvider currentAuditInfoProvider, IUserPasswordHash passwordHash, IMapper mapper, MessageBusAdapter bus)
     {
         _contextFactory = contextFactory;
         _currentAuditInfoProvider = currentAuditInfoProvider;
         _passwordHash = passwordHash;
         _mapper = mapper;
+        _bus = bus;
     }
 
     public async Task<CofiResponse> Handle(SignupUser request, CancellationToken cancellationToken)
@@ -39,6 +40,8 @@ sealed class SignupUser_Handler : CofiRequestHandler<SignupUser>
         context.Users.Add(user);
         await context.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
         await transaction.CommitAsync(cancellationToken).ConfigureAwait(false);
+
+        await _bus.Publish(_mapper.Map<User, UserCreated>(user), cancellationToken).ConfigureAwait(false);
 
         return new SignupUser.Response(user.Id);
     }

@@ -1,6 +1,6 @@
 namespace Cofi;
 
-public static class MimeTypes
+public static partial class MimeTypes
 {
     public static class Application
     {
