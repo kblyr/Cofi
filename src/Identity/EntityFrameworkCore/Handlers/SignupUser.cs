@@ -1,5 +1,4 @@
 using Cofi.Identity.Utilities;
-using Cofi.Messaging;
 
 namespace Cofi.Identity.Handlers;
 
