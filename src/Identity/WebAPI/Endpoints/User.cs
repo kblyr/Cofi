@@ -7,7 +7,7 @@ static class User_Endpoints
         public const string Signup = "/user/sign-up";
     }
 
-    public static EndpointMapper MapUser(this EndpointMapper mapper)
+    public static EndpointMapper User(this EndpointMapper mapper)
     {
         mapper.Builder
             .MapPost(Routes.Signup, Signup)
