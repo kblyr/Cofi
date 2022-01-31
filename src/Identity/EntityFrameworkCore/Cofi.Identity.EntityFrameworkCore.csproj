@@ -19,11 +19,8 @@
   <ItemGroup>
     <Using Include="Cofi.Auditing" />
     <Using Include="Cofi.Messaging" />
-    <Using Include="Cofi.Identity.Commands" />
     <Using Include="Cofi.Identity.Data" />
     <Using Include="Cofi.Identity.Entities" />
-    <Using Include="Cofi.Identity.Events" />
-    <Using Include="Cofi.Identity.Responses" />
 
     <Using Include="AutoMapper" />
     <Using Include="MediatR" />

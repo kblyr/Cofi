@@ -19,8 +19,6 @@
 
   <ItemGroup>
     <Using Include="Cofi" />
-    <Using Include="Cofi.Identity.Commands" />
-    <Using Include="Cofi.Identity.Queries" />
     <Using Include="Cofi.Identity.Schema" />
 
     <Using Include="AutoMapper" />
