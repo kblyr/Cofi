@@ -15,10 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Using Include="AutoMapper" />
-    <Using Include="FluentValidation" />
-    <Using Include="MassTransit" />
-    <Using Include="MediatR" />
+    <Using Include="Cofi.Contracts" />
   </ItemGroup>
 
 </Project>
