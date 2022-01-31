@@ -13,13 +13,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <Using Include="Cofi" />
     <Using Include="Cofi.Identity.Commands" />
+    <Using Include="Cofi.Identity.Queries" />
+    <Using Include="Cofi.Identity.Schema" />
 
+    <Using Include="AutoMapper" />
     <Using Include="MediatR" />
   </ItemGroup>
 

@@ -1,4 +1,4 @@
-namespace Cofi.Identity.MappingProfiles;
+namespace Cofi.Identity.Mapping;
 
 sealed class User_MP : Profile
 {
