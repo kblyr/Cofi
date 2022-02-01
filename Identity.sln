@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cofi.Web", "src\Common\Web\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cofi.Identity.WebAPI", "src\Identity\WebAPI\Cofi.Identity.WebAPI.csproj", "{21EE6FA5-545E-4AF5-9E76-0D25ACFE0275}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cofi.Identity.EntityFrameworkCore.Postgres", "src\Identity\EntityFrameworkCore.Postgres\Cofi.Identity.EntityFrameworkCore.Postgres.csproj", "{918E2CC6-2415-4359-8ABA-647FCD9E784D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,10 @@ Global
 		{21EE6FA5-545E-4AF5-9E76-0D25ACFE0275}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21EE6FA5-545E-4AF5-9E76-0D25ACFE0275}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21EE6FA5-545E-4AF5-9E76-0D25ACFE0275}.Release|Any CPU.Build.0 = Release|Any CPU
+		{918E2CC6-2415-4359-8ABA-647FCD9E784D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{918E2CC6-2415-4359-8ABA-647FCD9E784D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{918E2CC6-2415-4359-8ABA-647FCD9E784D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{918E2CC6-2415-4359-8ABA-647FCD9E784D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{91A9AFFB-FE97-40EC-A713-AB115978058D} = {9BB1FCB9-458C-457F-B7D1-45CC9561C5CB}
@@ -57,5 +63,6 @@ Global
 		{1F428132-AC0E-4758-8350-814F132F84C8} = {9AF55726-CD64-4A95-BB70-4AA481C4922F}
 		{5E27C4AB-2A0E-4F24-B032-425161FE5F54} = {91A9AFFB-FE97-40EC-A713-AB115978058D}
 		{21EE6FA5-545E-4AF5-9E76-0D25ACFE0275} = {9AF55726-CD64-4A95-BB70-4AA481C4922F}
+		{918E2CC6-2415-4359-8ABA-647FCD9E784D} = {9AF55726-CD64-4A95-BB70-4AA481C4922F}
 	EndGlobalSection
 EndGlobal
