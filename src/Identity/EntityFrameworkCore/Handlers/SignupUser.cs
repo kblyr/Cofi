@@ -8,13 +8,13 @@ namespace Cofi.Identity.Handlers;
 
 sealed class SignupUser_Handler : CofiRequestHandler<SignupUser>
 {
-    readonly IDbContextFactory<UserDbContext> _contextFactory;
+    readonly IDbContextFactory<DatabaseContext> _contextFactory;
     readonly IMapper _mapper;
     readonly IUserPasswordHash _passwordHash;
     readonly ICurrentAuditInfoProvider _currentAuditInfoProvider;
     readonly MessageBusAdapter _bus;
 
-    public SignupUser_Handler(IDbContextFactory<UserDbContext> contextFactory, IMapper mapper, IUserPasswordHash passwordHash, ICurrentAuditInfoProvider currentAuditInfoProvider, MessageBusAdapter bus)
+    public SignupUser_Handler(IDbContextFactory<DatabaseContext> contextFactory, IMapper mapper, IUserPasswordHash passwordHash, ICurrentAuditInfoProvider currentAuditInfoProvider, MessageBusAdapter bus)
     {
         _contextFactory = contextFactory;
         _mapper = mapper;
@@ -51,7 +51,7 @@ sealed class SignupUser_Handler : CofiRequestHandler<SignupUser>
         return new SignupUser.Response(user.Id);
     }
 
-    static async Task<bool> DoesUsernameExists(UserDbContext context, string username, CancellationToken cancellationToken) => await context.Users
+    static async Task<bool> DoesUsernameExists(DatabaseContext context, string username, CancellationToken cancellationToken) => await context.Users
         .AsNoTracking()
         .Where(user =>
             !user.IsDeleted

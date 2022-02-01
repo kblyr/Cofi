@@ -2,9 +2,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Cofi.Identity.Data;
 
-sealed class UserDbContext : DbContext
+sealed class DatabaseContext : DbContext
 {
-    public UserDbContext(DbContextOptions options) : base(options)
+    public DatabaseContext(DbContextOptions options) : base(options)
     {
     }
 
