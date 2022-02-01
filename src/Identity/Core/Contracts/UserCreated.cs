@@ -1,6 +1,6 @@
 namespace Cofi.Identity.Contracts;
 
-public record UserSignedUp
+public record UserCreated
 {
     public int Id { get; init; }
     public string Username { get; init; } = default!;

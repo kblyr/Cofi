@@ -8,6 +8,6 @@ sealed class MappingProfile : Profile
     {
         CreateMap<SignupUser, User>();
         
-        CreateMap<User, UserSignedUp>();
+        CreateMap<User, UserCreated>();
     }
 }

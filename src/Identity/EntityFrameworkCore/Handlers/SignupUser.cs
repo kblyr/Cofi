@@ -45,7 +45,7 @@ sealed class SignupUser_Handler : CofiRequestHandler<SignupUser>
         await context.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
         await transaction.CommitAsync(cancellationToken).ConfigureAwait(false);
 
-        await _bus.Publish(() => _mapper.Map<User, UserSignedUp>(user), cancellationToken).ConfigureAwait(false);
+        await _bus.Publish(() => _mapper.Map<User, UserCreated>(user), cancellationToken).ConfigureAwait(false);
 
         return new SignupUser.Response(user.Id);
     }
