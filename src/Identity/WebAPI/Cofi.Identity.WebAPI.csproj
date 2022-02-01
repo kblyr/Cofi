@@ -19,10 +19,9 @@
 
   <ItemGroup>
     <Using Include="Cofi" />
+    <Using Include="Cofi.Contracts" />
+    <Using Include="Cofi.Identity.Contracts" />
     <Using Include="Cofi.Identity.Schema" />
-
-    <Using Include="AutoMapper" />
-    <Using Include="MediatR" />
   </ItemGroup>
 
 </Project>

@@ -19,4 +19,9 @@
     <ProjectReference Include="..\Core\Cofi.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Using Include="Cofi.Contracts" />
+    <Using Include="Cofi.Schema" />
+  </ItemGroup>
+
 </Project>

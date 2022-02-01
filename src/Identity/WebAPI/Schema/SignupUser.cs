@@ -1,3 +1,5 @@
+using AutoMapper;
+
 namespace Cofi.Identity.Schema;
 
 public record SignupUserRequest

@@ -1,11 +1,12 @@
 namespace Cofi.Contracts;
 
+[AttributeUsage(AttributeTargets.Class)]
 public class FailedResponseMetadataAttribute : Attribute
 {
-    public string ErrorName { get; }
+    public string ErrorType { get; }
 
-    public FailedResponseMetadataAttribute(string errorName)
+    public FailedResponseMetadataAttribute(string errorType)
     {
-        ErrorName = errorName;
+        ErrorType = errorType;
     }
 }
