@@ -38,6 +38,7 @@ sealed class SignupUser_Handler : CofiRequestHandler<SignupUser>
         var user = _mapper.Map<SignupUser, User>(request);
         user.HashedPassword = _passwordHash.ComputeHash(request.Password);
         user.Status = UserStatus.Pending;
+        user.IsPasswordChangeRequired = false;
         user.IsDeleted = false;
         user.InsertedById = auditInfo.UserId;
         user.InsertedOn = auditInfo.Timestamp;
