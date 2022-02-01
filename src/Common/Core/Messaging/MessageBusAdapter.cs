@@ -20,4 +20,10 @@ public class MessageBusAdapter
         if (_config.IsEnabled)
             await Bus.Publish(message, cancellationToken).ConfigureAwait(false);
     }
+
+    public async Task Publish<T>(Func<T> buildMessage, CancellationToken cancellationToken = default) where T : class
+    {
+        if (_config.IsEnabled)
+            await Bus.Publish(buildMessage(), cancellationToken).ConfigureAwait(false);
+    }
 }

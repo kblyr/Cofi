@@ -5,7 +5,7 @@ public class User
     public int Id { get; set; }
     public string Username { get; set; } = default!;
     public string HashedPassword { get; set; } = default!;
-    public bool IsActive { get; set; }
+    public UserStatus Status { get; set; }
     public bool IsPasswordChangeRequired { get; set; }
     public bool IsDeleted { get; set; }
     public int? InsertedById { get; set; }

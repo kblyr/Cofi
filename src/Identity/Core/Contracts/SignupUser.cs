@@ -8,5 +8,12 @@ public record SignupUser : CofiRequest
     public record Response : CofiResponse
     {
         public int Id { get; init; }
+
+        public Response() { }
+
+        public Response(int id)
+        {
+            Id = id;
+        }
     }
 }

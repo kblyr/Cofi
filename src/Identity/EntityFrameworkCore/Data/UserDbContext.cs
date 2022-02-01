@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace Cofi.Identity.Data;
 
 sealed class UserDbContext : DbContext
