@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <Using Include="Cofi.Contracts" />
+    <Using Include="Cofi.Identity.Contracts" />
 
     <Using Include="MediatR" />
   </ItemGroup>

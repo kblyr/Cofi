@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Cofi.Validation;
 
-sealed class ValidationPipelineBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, CofiResponse>
+sealed class ValidationPipelineBehavior<TRequest> : IPipelineBehavior<TRequest, CofiResponse>
     where TRequest : CofiRequest
 {
     readonly IEnumerable<IValidator<TRequest>> _validators;
