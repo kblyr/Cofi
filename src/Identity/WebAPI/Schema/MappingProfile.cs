@@ -7,10 +7,13 @@ sealed class MappingProfile : Profile
     public MappingProfile()
     {
         // Requests
+        CreateMap<CreateUserRequest, CreateUser>();
         CreateMap<SignupUserRequest, SignupUser>();
 
         // Responses
-        CreateMap<SignupUser.Response, SignupUserResponse>();
         CreateMap<UsernameAlreadyExists, UsernameAlreadyExistsResponse>();
+        
+        CreateMap<CreateUser.Response, CreateUserResponse>();
+        CreateMap<SignupUser.Response, SignupUserResponse>();
     }
 }

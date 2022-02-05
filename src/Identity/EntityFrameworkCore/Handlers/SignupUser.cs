@@ -34,7 +34,6 @@ sealed class SignupUser_Handler : CofiRequestHandler<SignupUser>
         }
 
         var auditInfo = _currentAuditInfoProvider.Current;
-
         var user = _mapper.Map<SignupUser, User>(request);
         user.HashedPassword = _passwordHash.ComputeHash(request.Password);
         user.Status = UserStatus.Pending;
@@ -42,12 +41,11 @@ sealed class SignupUser_Handler : CofiRequestHandler<SignupUser>
         user.IsDeleted = false;
         user.InsertedById = auditInfo.UserId;
         user.InsertedOn = auditInfo.Timestamp;
-
         await context.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
-        await transaction.CommitAsync(cancellationToken).ConfigureAwait(false);
 
         await _bus.Publish(() => _mapper.Map<User, UserCreated>(user), cancellationToken).ConfigureAwait(false);
 
+        await transaction.CommitAsync(cancellationToken).ConfigureAwait(false);
         return new SignupUser.Response(user.Id);
     }
 
