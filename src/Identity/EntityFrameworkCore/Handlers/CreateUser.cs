@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Cofi.Identity.Handlers;
 
-sealed class CreateUser_Handler : CofiRequestHandler<CreateUser>
+sealed class CreateUser_Handler : RequestHandler<CreateUser>
 {
     readonly IDbContextFactory<DatabaseContext> _contextFactory;
     readonly ICurrentAuditInfoProvider _currentAuditInfoProvider;
@@ -23,7 +23,7 @@ sealed class CreateUser_Handler : CofiRequestHandler<CreateUser>
         _bus = bus;
     }
 
-    public async Task<CofiResponse> Handle(CreateUser request, CancellationToken cancellationToken)
+    public async Task<Response> Handle(CreateUser request, CancellationToken cancellationToken)
     {
         using var context = await _contextFactory.CreateDbContextAsync(cancellationToken).ConfigureAwait(false);
         using var transaction = await context.Database.BeginTransactionAsync(cancellationToken).ConfigureAwait(false);

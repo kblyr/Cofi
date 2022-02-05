@@ -2,8 +2,8 @@ using MediatR;
 
 namespace Cofi.Validation;
 
-sealed class AccessValidationPipelineBehavior<TRequest> : IPipelineBehavior<TRequest, CofiResponse>
-    where TRequest : CofiRequest
+sealed class AccessValidationPipelineBehavior<TRequest> : IPipelineBehavior<TRequest, Response>
+    where TRequest : Request
 {
     readonly IAccessValidator _validator;
     readonly IAccessValidationConfiguration<TRequest> _config;
@@ -14,7 +14,7 @@ sealed class AccessValidationPipelineBehavior<TRequest> : IPipelineBehavior<TReq
         _config = config;
     }
 
-    public async Task<CofiResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<CofiResponse> next)
+    public async Task<Response> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<Response> next)
     {
         var context = new AccessValidationContext();
         _config.Configure(context, request);

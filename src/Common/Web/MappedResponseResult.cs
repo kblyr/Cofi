@@ -5,14 +5,14 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Cofi;
 
-public class MappedResponseResult<TResponse> : IResult where TResponse : CofiResponse
+public class MappedResponseResult<TResponse> : IResult where TResponse : Response
 {
     static readonly object _lockObj = new();
     static readonly Dictionary<Type, string> _errorTypes = new();
-    readonly CofiResponse _response;
+    readonly Response _response;
     readonly int _statusCode;
 
-    public MappedResponseResult(CofiResponse response, int statusCode)
+    public MappedResponseResult(Response response, int statusCode)
     {
         _response = response;
         _statusCode = statusCode;

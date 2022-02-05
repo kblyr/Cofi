@@ -1,3 +1,3 @@
 namespace Cofi.Contracts;
 
-public interface FailedResponse : CofiResponse { }
+public interface FailedResponse : Response { }

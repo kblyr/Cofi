@@ -14,7 +14,7 @@ public class MappedMediatorAdapter
         _mapper = mapper;
     }
 
-    public async Task<CofiResponse> Send<TFromRequest, TToRequest>(TFromRequest request, CancellationToken cancellationToken = default) where TToRequest : CofiRequest
+    public async Task<Response> Send<TFromRequest, TToRequest>(TFromRequest request, CancellationToken cancellationToken = default) where TToRequest : Request
     {
         var destinationRequest = _mapper.Map<TFromRequest, TToRequest>(request);
         return await _mediator.Send(destinationRequest, cancellationToken).ConfigureAwait(false);

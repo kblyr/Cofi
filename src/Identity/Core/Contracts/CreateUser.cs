@@ -1,6 +1,6 @@
 namespace Cofi.Identity.Contracts;
 
-public record CreateUser : CofiRequest
+public record CreateUser : Request
 {
     public string Username { get; init; } = default!;
     public string Password { get; init; } = default!;
@@ -11,7 +11,7 @@ public record CreateUser : CofiRequest
     public IEnumerable<int> RoleIds { get; init; } = default!;
     public IEnumerable<int> PermissionIds { get; init; } = default!;
 
-    public record Response : CofiResponse
+    public record Response : Cofi.Contracts.Response
     {
         public int Id { get; init; }
 

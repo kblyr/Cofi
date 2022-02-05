@@ -1,11 +1,11 @@
 namespace Cofi.Identity.Contracts;
 
-public record SignupUser : CofiRequest
+public record SignupUser : Request
 {
     public string Username { get; init; } = default!;
     public string Password { get; init; } = default!;
 
-    public record Response : CofiResponse
+    public record Response : Cofi.Contracts.Response
     {
         public int Id { get; init; }
 

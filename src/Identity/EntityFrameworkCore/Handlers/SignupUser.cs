@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Cofi.Identity.Handlers;
 
-sealed class SignupUser_Handler : CofiRequestHandler<SignupUser>
+sealed class SignupUser_Handler : RequestHandler<SignupUser>
 {
     readonly IDbContextFactory<DatabaseContext> _contextFactory;
     readonly IMapper _mapper;
@@ -23,7 +23,7 @@ sealed class SignupUser_Handler : CofiRequestHandler<SignupUser>
         _bus = bus;
     }
 
-    public async Task<CofiResponse> Handle(SignupUser request, CancellationToken cancellationToken)
+    public async Task<Response> Handle(SignupUser request, CancellationToken cancellationToken)
     {
         using var context = await _contextFactory.CreateDbContextAsync(cancellationToken).ConfigureAwait(false);
         using var transaction = await context.Database.BeginTransactionAsync(cancellationToken).ConfigureAwait(false);

@@ -2,4 +2,4 @@ using MediatR;
 
 namespace Cofi.Handlers;
 
-public interface CofiRequestHandler<TRequest> : IRequestHandler<TRequest, CofiResponse> where TRequest : CofiRequest { }
+public interface RequestHandler<TRequest> : IRequestHandler<TRequest, Response> where TRequest : Request { }

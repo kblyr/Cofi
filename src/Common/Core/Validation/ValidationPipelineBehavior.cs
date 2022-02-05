@@ -4,8 +4,8 @@ using MediatR;
 
 namespace Cofi.Validation;
 
-sealed class ValidationPipelineBehavior<TRequest> : IPipelineBehavior<TRequest, CofiResponse>
-    where TRequest : CofiRequest
+sealed class ValidationPipelineBehavior<TRequest> : IPipelineBehavior<TRequest, Response>
+    where TRequest : Request
 {
     readonly IEnumerable<IValidator<TRequest>> _validators;
 
@@ -14,7 +14,7 @@ sealed class ValidationPipelineBehavior<TRequest> : IPipelineBehavior<TRequest, 
         _validators = validators;
     }
 
-    public async Task<CofiResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<CofiResponse> next)
+    public async Task<Response> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<Response> next)
     {
         var failures = new List<ValidationFailure>();
         
